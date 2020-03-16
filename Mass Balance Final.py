@@ -17,6 +17,10 @@ Ksf_int = 0.5
 Kgs_int = 0.005
 
 # Initial conditions:
+# These are our estimates for the parameters and the interactive plots will initially display these values. 
+# If you want to observe the effects of changing the values of parameters, use the sliders of the interactive plots.
+
+
 # Mass of flavor in gum
 Mass_of_Flavor_in_Gum_int = 90
 # Mass of flavor in saliva
@@ -48,7 +52,10 @@ Time_Between_Breath_int = 2
 # Fraction of flavoring left in the nasal cavity after a breath
 Flavor_Left_After_Breath_int = 0
 
-# Lists and arrays:
+# Lists and arrays for time:
+# Use t if you want to observe the first 100 seconds
+# Use tdiff if you want to observe the first 1000 seconds
+# The interactive plots do not allow time as a 
 t = np.arange(0, 100, Timestep_int)
 tdiff = np.arange(0, 1000, Timestep_int)
 
@@ -58,6 +65,10 @@ def MassPlot(Mfgum=Mass_of_Flavor_in_Gum_int, SArea=Surface_Area_of_Gum_int, hsf
              Vsaliva=Volume_of_Saliva_int, Kgs=Kgs_int, Vgas=Volume_of_Gas_int,
              Mfgas=Mass_of_Flavor_in_Gas_int, Fbreath=Flavor_Left_After_Breath_int,
              Swallowtime=Swallowtime_int, BreathInt=Time_Between_Breath_int, Salrate=Salrate_int):
+  '''
+  Mass of the flavor over time for three phases. The arguments of the plot are set to the initial conditions 
+  in order to make the interactive plot start at those conditions.
+  '''
     MassInGum = []
     MassInGas = []
     MassInSaliva = []
@@ -94,6 +105,9 @@ def TransferPlot(Mfgum=Mass_of_Flavor_in_Gum_int, SArea=Surface_Area_of_Gum_int,
                  Vsaliva=Volume_of_Saliva_int, Kgs=Kgs_int, Vgas=Volume_of_Gas_int,
                  Mfgas=Mass_of_Flavor_in_Gas_int, Fbreath=Flavor_Left_After_Breath_int,
                  Swallowtime=Swallowtime_int, BreathInt=Time_Between_Breath_int, Salrate=Salrate_int):
+  '''
+  Transport rate dm/dt over time.
+  '''
     MassInGum = []
     MassInGas = []
     MassInSaliva = []
@@ -127,6 +141,9 @@ def RelativeConc(Mfgum=Mass_of_Flavor_in_Gum_int, SArea=Surface_Area_of_Gum_int,
                  Vsaliva=Volume_of_Saliva_int, Kgs=Kgs_int, Vgas=Volume_of_Gas_int,
                  Mfgas=Mass_of_Flavor_in_Gas_int, Fbreath=Flavor_Left_After_Breath_int,
                  Swallowtime=Swallowtime_int, BreathInt=Time_Between_Breath_int, Salrate=Salrate_int):
+  '''
+  Concentration of flavor in the gum relative to its initial concentration over time.
+  '''
     MassInGum = []
     MassInGas = []
     MassInSaliva = []
@@ -162,6 +179,9 @@ def RelativeConcGS(Mfgum=Mass_of_Flavor_in_Gum_int, SArea=Surface_Area_of_Gum_in
                    Vsaliva=Volume_of_Saliva_int, Kgs=Kgs_int, Vgas=Volume_of_Gas_int,
                    Mfgas=Mass_of_Flavor_in_Gas_int, Fbreath=Flavor_Left_After_Breath_int,
                    Swallowtime=Swallowtime_int, BreathInt=Time_Between_Breath_int, Salrate=Salrate_int):
+  '''
+  Concentration of flavor in saliva relative to the concentration of flavor in gum.
+  '''
     MassInGum = []
     MassInGas = []
     MassInSaliva = []
@@ -197,6 +217,9 @@ def ConcFlavor(Mfgum=Mass_of_Flavor_in_Gum_int, SArea=Surface_Area_of_Gum_int, h
                Vsaliva=Volume_of_Saliva_int, Kgs=Kgs_int, Vgas=Volume_of_Gas_int,
                Mfgas=Mass_of_Flavor_in_Gas_int, Fbreath=Flavor_Left_After_Breath_int,
                Swallowtime=Swallowtime_int, BreathInt=Time_Between_Breath_int, Salrate=Salrate_int):
+  '''
+  Concentration of flavor in saliva over time.
+  '''
     MassInGum = []
     MassInGas = []
     MassInSaliva = []
@@ -231,22 +254,32 @@ interactive_plot_1 = interactive(MassPlot, Mfgum=(0, 180), SArea=(0, 10), hsf=(0
                                Kgs=(0.001, 0.1, 0.001), Vgas=(0.1, 10), Mfgas=(0, 1), FBreath=(0, 1, 0.1),
                                Swallowtime=(1, 1000), BreathInt=(1, 1000), Salrate=(0, 0.12, 0.01))
 
+interactive_plot_1
+
 interactive_plot_2 = interactive(TransferPlot, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 10),
                                Ksf=(0.1, 100), Vgum=(0.1, 1), Mfs=(0, 0.5), Vsaliva=(1, 5, 0.2),
                                Kgs=(0.1, 100), Vgas=(0.1, 10), Mfgas=(0, 1), FBreath=(0, 1, 0.1),
                                Swallowtime=(1, 10), BreathInt=(1, 5), Salrate=(0, 0.12, 0.01))
+
+interactive_plot_2
 
 interactive_plot_3 = interactive(RelativeConc, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 10),
                                Ksf=(0.05, 100), Vgum=(0.1, 1), Mfs=(0, 0.5), Vsaliva=(1, 5, 0.2),
                                Kgs=(0.1, 100), Vgas=(0.1, 10), Mfgas=(0, 1), FBreath=(0, 1, 0.1),
                                Swallowtime=(1, 10), BreathInt=(1, 5), Salrate=(0, 0.12, 0.01))
 
+interactive_plot_3
+
 interactive_plot_4 = interactive(RelativeConcGS, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 10),
                                Ksf=(0.05, 100), Vgum=(0.1, 1), Mfs=(0, 0.5), Vsaliva=(1, 5, 0.2),
                                Kgs=(0.005, 0.1), Vgas=(0.1, 10), Mfgas=(0, 1), FBreath=(0, 1, 0.1),
                                Swallowtime=(1, 10), BreathInt=(1, 5), Salrate=(0, 0.12, 0.01))
 
+interactive_plot_4
+
 interactive_plot_5 = interactive(ConcFlavor, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 10),
                                Ksf=(0.05, 100), Vgum=(0.1, 1), Mfs=(0, 0.5), Vsaliva=(1, 5, 0.2),
                                Kgs=(0.005, 100), Vgas=(0.1, 10), Mfgas=(0, 1), FBreath=(0, 1, 0.1),
                                Swallowtime=(1, 10), BreathInt=(1, 5), Salrate=(0, 0.12, 0.01))
+
+interactive_plot_5
