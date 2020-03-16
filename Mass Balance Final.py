@@ -4,6 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from ipywidgets import interactive
+%matplotlib inline
 
 # Gum constants:
 # Surface area of gum
@@ -225,13 +226,6 @@ def ConcFlavor(Mfgum=Mass_of_Flavor_in_Gum_int, SArea=Surface_Area_of_Gum_int, h
     plt.ylabel('Concentration')
     plt.title('Concentration of Flavor in Saliva')
 
-
-MassPlot(Mass_of_Flavor_in_Gum_int, Surface_Area_of_Gum_int, hsf_int, Ksf_int, Volume_of_Gum_int,
-         Mass_of_Flavor_in_Saliva_int, Volume_of_Saliva_int, Kgs_int, Volume_of_Gas_int,
-         Mass_of_Flavor_in_Gas_int, Flavor_Left_After_Breath_int, Swallowtime_int,
-         Time_Between_Breath_int, Salrate_int)
-
-
 interactive_plot_1 = interactive(MassPlot, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 100),
                                Ksf=(0.1, 100), Vgum=(0.1, 1), Mfs=(0, 0.5), Vsaliva=(1, 5, 0.2),
                                Kgs=(0.001, 0.1, 0.001), Vgas=(0.1, 10), Mfgas=(0, 1), FBreath=(0, 1, 0.1),
@@ -242,12 +236,10 @@ interactive_plot_2 = interactive(TransferPlot, Mfgum=(0, 180), SArea=(0, 10), hs
                                Kgs=(0.1, 100), Vgas=(0.1, 10), Mfgas=(0, 1), FBreath=(0, 1, 0.1),
                                Swallowtime=(1, 10), BreathInt=(1, 5), Salrate=(0, 0.12, 0.01))
 
-
 interactive_plot_3 = interactive(RelativeConc, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 10),
                                Ksf=(0.05, 100), Vgum=(0.1, 1), Mfs=(0, 0.5), Vsaliva=(1, 5, 0.2),
                                Kgs=(0.1, 100), Vgas=(0.1, 10), Mfgas=(0, 1), FBreath=(0, 1, 0.1),
                                Swallowtime=(1, 10), BreathInt=(1, 5), Salrate=(0, 0.12, 0.01))
-
 
 interactive_plot_4 = interactive(RelativeConcGS, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 10),
                                Ksf=(0.05, 100), Vgum=(0.1, 1), Mfs=(0, 0.5), Vsaliva=(1, 5, 0.2),
