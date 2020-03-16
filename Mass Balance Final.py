@@ -226,68 +226,35 @@ def ConcFlavor(Mfgum=Mass_of_Flavor_in_Gum_int, SArea=Surface_Area_of_Gum_int, h
     plt.title('Concentration of Flavor in Saliva')
 
 
-# In[5]:
-
-
 MassPlot(Mass_of_Flavor_in_Gum_int, Surface_Area_of_Gum_int, hsf_int, Ksf_int, Volume_of_Gum_int,
          Mass_of_Flavor_in_Saliva_int, Volume_of_Saliva_int, Kgs_int, Volume_of_Gas_int,
          Mass_of_Flavor_in_Gas_int, Flavor_Left_After_Breath_int, Swallowtime_int,
          Time_Between_Breath_int, Salrate_int)
 
 
-interactive_plot = interactive(MassPlot, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 100),
+interactive_plot_1 = interactive(MassPlot, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 100),
                                Ksf=(0.1, 100), Vgum=(0.1, 1), Mfs=(0, 0.5), Vsaliva=(1, 5, 0.2),
                                Kgs=(0.001, 0.1, 0.001), Vgas=(0.1, 10), Mfgas=(0, 1), FBreath=(0, 1, 0.1),
                                Swallowtime=(1, 1000), BreathInt=(1, 1000), Salrate=(0, 0.12, 0.01))
 
-interactive_plot
-
-interactive_plot = interactive(TransferPlot, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 10),
+interactive_plot_2 = interactive(TransferPlot, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 10),
                                Ksf=(0.1, 100), Vgum=(0.1, 1), Mfs=(0, 0.5), Vsaliva=(1, 5, 0.2),
                                Kgs=(0.1, 100), Vgas=(0.1, 10), Mfgas=(0, 1), FBreath=(0, 1, 0.1),
                                Swallowtime=(1, 10), BreathInt=(1, 5), Salrate=(0, 0.12, 0.01))
-# output = interactive_plot.children[-1]
-interactive_plot
-
-# In[8]:
 
 
-RelativeConc(Mass_of_Flavor_in_Gum_int, Surface_Area_of_Gum_int, hsf_int, Ksf_int, Volume_of_Gum_int,
-             Mass_of_Flavor_in_Saliva_int, Volume_of_Saliva_int, Kgs_int, Volume_of_Gas_int,
-             Mass_of_Flavor_in_Gas_int, Flavor_Left_After_Breath_int, Swallowtime_int,
-             Time_Between_Breath_int, Salrate_int)
-
-# In[9]:
-
-
-interactive_plot = interactive(RelativeConc, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 10),
+interactive_plot_3 = interactive(RelativeConc, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 10),
                                Ksf=(0.05, 100), Vgum=(0.1, 1), Mfs=(0, 0.5), Vsaliva=(1, 5, 0.2),
                                Kgs=(0.1, 100), Vgas=(0.1, 10), Mfgas=(0, 1), FBreath=(0, 1, 0.1),
                                Swallowtime=(1, 10), BreathInt=(1, 5), Salrate=(0, 0.12, 0.01))
-interactive_plot
-
-# In[10]:
 
 
-RelativeConcGS(Mass_of_Flavor_in_Gum_int, Surface_Area_of_Gum_int, hsf_int, Ksf_int, Volume_of_Gum_int,
-               Mass_of_Flavor_in_Saliva_int, Volume_of_Saliva_int, Kgs_int, Volume_of_Gas_int,
-               Mass_of_Flavor_in_Gas_int, Flavor_Left_After_Breath_int, Swallowtime_int,
-               Time_Between_Breath_int, Salrate_int)
-
-# In[11]:
-
-
-interactive_plot = interactive(RelativeConcGS, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 10),
+interactive_plot_4 = interactive(RelativeConcGS, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 10),
                                Ksf=(0.05, 100), Vgum=(0.1, 1), Mfs=(0, 0.5), Vsaliva=(1, 5, 0.2),
                                Kgs=(0.005, 0.1), Vgas=(0.1, 10), Mfgas=(0, 1), FBreath=(0, 1, 0.1),
                                Swallowtime=(1, 10), BreathInt=(1, 5), Salrate=(0, 0.12, 0.01))
-interactive_plot
 
-# In[12]:
-
-
-interactive_plot = interactive(ConcFlavor, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 10),
+interactive_plot_5 = interactive(ConcFlavor, Mfgum=(0, 180), SArea=(0, 10), hsf=(0.1, 10),
                                Ksf=(0.05, 100), Vgum=(0.1, 1), Mfs=(0, 0.5), Vsaliva=(1, 5, 0.2),
                                Kgs=(0.005, 100), Vgas=(0.1, 10), Mfgas=(0, 1), FBreath=(0, 1, 0.1),
                                Swallowtime=(1, 10), BreathInt=(1, 5), Salrate=(0, 0.12, 0.01))
-interactive_plot
